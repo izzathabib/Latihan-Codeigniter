@@ -106,7 +106,23 @@ class Pelajar extends CI_Controller {
       // set common properties
       $data['title']='Update pelajar';
       $data['message']='';
+    } else {
+      //Save data
+      $id=$this->input->post('id');
+      $pelajar= array(
+        'nama'=>$this->input->post('nama'),
+        'alamat'=>$this->input->post('alamat'),
+        'jantina'=>$this->input->post('jantina'),
+        'tarikh_lahir'=> date('Y-m-d',strtotime($this->input->post('tarikh_lahir')))
+      );
+      $this->Pelajar_model->update($id,$pelajar);
+      $data['pelajar']= $this->Pelajar_model->get_by_id($id);
+      // set user message
+      $data['message']='<span class="label success">Kemaskini Pelajar Berjaya</span>';
     }
+    $data['link_back']= anchor('pelajar/index/','Lihat daftar pelajar',array('class'=>'back'));
+    // load view
+    $this->load->view('pelajar/pelajarEdit',$data);
   }
 
  
