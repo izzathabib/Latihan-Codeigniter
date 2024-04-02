@@ -72,9 +72,6 @@ class CI_Controller {
 	public $uri;
 	public $validation;
 
-	function _set_rules(){}
-
-
 
 	/**
 	 * Class constructor

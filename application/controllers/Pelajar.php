@@ -125,6 +125,30 @@ class Pelajar extends CI_Controller {
     $this->load->view('pelajar/pelajarEdit',$data);
   }
 
- 
-  
+  function delete($id){
+    // delete pelajar
+    $this->Pelajar_model->delete($id);
+    // redirect to pelajar list page
+    redirect('pelajar/index/delete_success','refresh');
+  }
+
+  // validation rules
+  function _set_rules(){
+    $this->form_validation->set_rules('nama','Nama','required|trim');
+    $this->form_validation->set_rules('jantina','Password','required');
+    $this->form_validation->set_rules('alamat','Alamat','required');
+    $this->form_validation->set_rules('tarikh_lahir','Tarikh Lahir','required|callback_valid_date');
+  }
+
+  //data_validation callback
+  function valid_date($str){
+    if(!preg_match('/^[0-9]{2}-[0-9]{2}-[0-9]{4}$/',$str)){
+      $this->form_validation->set_message('valid_date','date format is not valid. dd-mm-yyyy');
+      return false;
+    } else {
+      return true;
+    }
+  }
 }
+/* End of file Pelajar.php */
+/* Location: ./application/controllers/Pelajar.php */
