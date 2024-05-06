@@ -67,6 +67,12 @@ class CI_Controller {
 	public $load;
 	public $input;
 	public $form_validation;
+	public $Pelajar_model;
+	public $pagination;
+	public $uri;
+	public $validation;
+
+
 	/**
 	 * Class constructor
 	 *
