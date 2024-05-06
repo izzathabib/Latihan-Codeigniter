@@ -18,6 +18,8 @@ class Pelajar extends CI_Controller {
     if (empty($order_type)) $order_type= "asc";
 
     $data['offset'] = $offset;
+    // Assign new order
+    // Obviously opposite from the current order
     $data['new_order'] = $order_type=='asc'?'desc':'asc';
 
     //load data pelajar

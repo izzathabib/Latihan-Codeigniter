@@ -6,6 +6,7 @@ class Pelajar_model extends CI_Model {
     parent::__construct();
   }
 
+  //This function will return the order of data viewed(How data will be displayed)
   function get_paged_list($limit=10,$offset=0,$order_column='',$order_type='asc') {
     if (empty($order_column)|| empty($order_type))
       $this->db->order_by($this->primary_key,'asc');
