@@ -83,9 +83,9 @@ class Pelajar extends CI_Controller {
 
   function view($id) {
     // set common properties
-    $data['title']='pelajar Details';
+    $data['title']='Pelajar Details';
     $data['link_back']= anchor('pelajar/index/','Lihat daftar pelajars',array('class'=>'back'));
-    // get pelajar details
+    // To get detail pelajar, it assign pelajar variable to the query that fetch data from model
     $data['pelajar']=$this->Pelajar_model->get_by_id($id);
     // load view
     $this->load->view('pelajar/pelajarView',$data);
